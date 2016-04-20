@@ -1,0 +1,20 @@
+{
+    "name": "witoso/daily-philosophy",
+    "require": {
+        "silex/silex": "^1.3",
+        "twig/twig": "^1.24",
+        "symfony/twig-bridge": "^3.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Witek Socha",
+            "email": "witek.soch@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "DailyPhilosophy\\": "src/"
+      }
+    }
+}
