@@ -1,8 +1,9 @@
 <?php
-
 require_once '../vendor/autoload.php';
 
-$app = new Silex\Application();
+use DailyPhilosophy\MyApp;
+
+$app = new MyApp();
 $app['debug'] = true;
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
