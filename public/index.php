@@ -2,8 +2,10 @@
 
 $app = require_once '../app/bootstrap.php';
 
-$app->get('/', function() use ($app){
-  return $app['twig']->render('base.html.twig');
-});
+$app->get('/', 'DailyPhilosophy\Controllers\HomeController::indexAction')
+->bind('homepage');
+
+$app->get('/discover', 'discover.controller:showArticleAction')
+->bind('discover');
 
 $app->run();
