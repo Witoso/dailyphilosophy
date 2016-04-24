@@ -8,7 +8,7 @@ class HomeController
 {
   public function indexAction(MyApp $app)
   {
-    return $app->render('base.html.twig');
+    return $app->render('home.html.twig');
   }
 
 }
