@@ -1,8 +1,11 @@
 <?php
+namespace DailyPhilosophy\Interfaces;
+
 
 interface Article
 {
-  public function showIntro(): string {}
-  public function showTOC(): string {}
-  public function downloadArticle(){}
+  public function getTitle(): string;
+  public function getIntro(): string;
+  public function getUrl(): string;
+  public function downloadArticle();
 }
