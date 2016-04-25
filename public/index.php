@@ -2,7 +2,7 @@
 
 $app = require_once '../app/bootstrap.php';
 
-$app->get('/', 'DailyPhilosophy\Controllers\HomeController::indexAction')
+$app->get('/', 'home.controller:indexAction')
     ->bind('homepage');
 
 $app->get('/discover', 'discover.controller:showArticleAction')
