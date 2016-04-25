@@ -22,8 +22,20 @@ class StanfordArticle implements Article
     public function downloadArticle()
     {
         $this->domParser->loadFromUrl(StanfordArticle::randomArticle);
-        $this->intro = strip_tags(html_entity_decode($this->domParser->find('#preamble')->innerHtml));
+        $this->intro = $this->cleanHtml($this->domParser->find('#preamble')->innerHtml);
         $this->title = $this->domParser->find('#aueditable h1')->text;
+        $this->url = $this->parseUrl($this->domParser->find('#article-nav > ul > li', 4)->firstChild()->getAttribute('href'));
+    }
+
+    private function cleanHtml(string $html): string
+    {
+        return strip_tags(html_entity_decode($html));
+    }
+
+    private function parseUrl(string $url): string
+    {
+        $base = 'http://plato.stanford.edu/entries/';
+        return $base . substr(strstr($url, '='), 1);
     }
 
 
@@ -34,6 +46,7 @@ class StanfordArticle implements Article
 
     public function getUrl(): string
     {
+        return $this->url;
     }
 
     public function getTitle(): string
