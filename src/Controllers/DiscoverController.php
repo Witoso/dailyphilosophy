@@ -8,20 +8,20 @@ use Symfony\Component\HttpFoundation\Request;
 class DiscoverController
 {
 
-  private $htmlParser;
+    private $htmlParser;
 
-  public function __construct(\PHPHtmlParser\Dom $dom)
-  {
-    $this->htmlParser = $dom;
-  }
+    public function __construct(\PHPHtmlParser\Dom $dom)
+    {
+        $this->htmlParser = $dom;
+    }
 
-  public function showArticleAction(MyApp $app)
-  {
-    $article = new StanfordArticle($this->htmlParser);
-    $article->downloadArticle();
-    return $app->render('discover.html.twig', array(
-      'article' => $article
-    ));
-  }
+    public function showArticleAction(MyApp $app)
+    {
+        $article = new StanfordArticle($this->htmlParser);
+        $article->downloadArticle();
+        return $app->render('discover.html.twig', array(
+            'article' => $article
+        ));
+    }
 
 }

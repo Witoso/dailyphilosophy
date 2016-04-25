@@ -6,9 +6,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class HomeController
 {
-  public function indexAction(MyApp $app)
-  {
-    return $app->render('home.html.twig');
-  }
+    public function indexAction(MyApp $app)
+    {
+        return $app->render('home.html.twig');
+    }
 
 }
