@@ -1,8 +1,17 @@
 {% extends "_base.html.twig" %}
 {% block body %}
-
-    <a href="/discover">Discover</a>
-    <a href="#">Learn</a>
+    <blockquote>
+        <p>The Greek word for philosopher (<em>philosophos</em>) connotes a distinction from <em>sophos</em>. It
+            signifies
+            the lover of wisdom (knowledge) as distinguished from him who considers himself wise in the possession of
+            knowledge. This meaning of the word still endures: the essence of philosophy is not the possession of the
+            truth
+            but the search for truth. … Philosophy means to be on the way. Its questions are more essential than its
+            answers, and every answer becomes a new question.
+        </p>
+        <footer>Karl Jaspers</footer>
+    </blockquote>
+    <a href="{{ url('discover') }}">Discover</a>
+    <a href="{{ url('meet') }}">Meet</a>
     <a href="#">Read</a>
-
 {% endblock %}
