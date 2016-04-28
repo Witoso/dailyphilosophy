@@ -1,35 +1,15 @@
 <?php
-require_once '../vendor/autoload.php';
+require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
 use DailyPhilosophy\MyApp;
-use DailyPhilosophy\Controllers\HomeController;
-use DailyPhilosophy\Controllers\DiscoverController;
+
 
 
 $app = new MyApp();
 
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
-
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/../resources/views'
-));
-
-$app->register(new Silex\Provider\UrlGeneratorServiceProvider());
-
-$app['htmlParser'] = function () {
-    return new \PHPHtmlParser\Dom;
-};
-
-$app['home.controller'] = $app->share(function() use ($app) {
-    return new HomeController();
-});
-
-$app['discover.controller'] = $app->share(function () use ($app) {
-    return new DiscoverController($app['htmlParser']);
-});
-
-
-$app['debug'] = true;
+require_once __DIR__ . '/controllers.php';
+require_once __DIR__ . '/routes.php';
+require_once __DIR__ . '/services.php';
 
 
 return $app;
