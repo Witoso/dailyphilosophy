@@ -1,0 +1,16 @@
+{% extends "_base.html.twig" %}
+{% block body %}
+
+    {% for philosopher in philosophers %}
+        <button class="details">{{ philosopher.name }}</button>
+    {% endfor %}
+
+    {# Popup #}
+
+    <div id="popup">
+
+
+
+    </div>
+
+{% endblock %}
