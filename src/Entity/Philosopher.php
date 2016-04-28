@@ -5,7 +5,8 @@ namespace DailyPhilosophy\Entity;
 use DailyPhilosophy\Content\PhilosopherGraph;
 use Doctrine\DBAL\Connection;
 
-class Philosopher
+
+class Philosopher implements \JsonSerializable
 {
     private $name;
     private $graph;
@@ -34,6 +35,23 @@ class Philosopher
         $this->graph->downloadInformation($this->name);
     }
 
+    public function jsonSerialize()
+    {
+        return ["name" => $this->name,
+                "information" => $this->graph->getInformation(),
+                "imageUrl" => $this->graph->getImageUrl(),
+                "detailsUrl" => $this->graph->getDetailsUrl()
+        ];
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
     public function getGraph()
     {
