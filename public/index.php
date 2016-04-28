@@ -1,11 +1,9 @@
 <?php
 
-$app = require_once '../app/bootstrap.php';
+$app = require_once dirname(__FILE__, 2) . '/app/bootstrap.php';
 
-$app->get('/', 'home.controller:indexAction')
-    ->bind('homepage');
-
-$app->get('/discover', 'discover.controller:showArticleAction')
-    ->bind('discover');
+$app['debug'] = true;
 
 $app->run();
+
+
