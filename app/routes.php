@@ -4,8 +4,11 @@
 $app->get('/', 'home.controller:indexAction')
     ->bind('homepage');
 
-$app->get('/discover', 'discover.controller:showArticleAction')
+$app->get('/discover', 'discover.controller:showPageAction')
     ->bind('discover');
+
+$app->get('/discover/getArticle', 'discover.controller:getArticleAction')
+    ->bind('getArticle');
 
 $app->get('/meet', 'meet.controller:showAllAction')
     ->bind('meet');

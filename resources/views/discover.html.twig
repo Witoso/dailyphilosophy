@@ -1,7 +1,16 @@
 {% extends "_base.html.twig" %}
+{% block links %}
+
+    {{ parent() }}
+    <script src="js/discover.js"></script>
+
+{% endblock %}
 {% block body %}
     <h2>Discover</h2>
-    <h3>{{ article.title }}</h3>
-    <p>{{ article.intro }}</p>
-    <button class="btn btn-default" href="{{ article.url }}">Read More</button>
+    <img id="loading" src="/pic/ajax-loader.gif">
+    <div id="article">
+        <h3 id="title"></h3>
+        <p id="intro"></p>
+        <a id="details" class="btn btn-default" href="">Read More</a>
+    </div>
 {% endblock %}

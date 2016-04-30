@@ -5,7 +5,7 @@ namespace DailyPhilosophy\Content;
 use DailyPhilosophy\Interfaces\Article;
 
 
-class StanfordArticle implements Article
+class StanfordArticle implements Article, \JsonSerializable
 {
     const RANDOM_ARTICLE = 'http://plato.stanford.edu/cgi-bin/encyclopedia/random';
     private $domParser;
@@ -14,9 +14,19 @@ class StanfordArticle implements Article
     private $title;
 
 
+
     public function __construct(\PHPHtmlParser\Dom $dom)
     {
         $this->domParser = $dom;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "intro" => $this->intro,
+            "url" => $this->url,
+            "title" => $this->title
+        ];
     }
 
     public function downloadArticle()

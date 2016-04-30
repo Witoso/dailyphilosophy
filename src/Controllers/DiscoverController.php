@@ -15,13 +15,16 @@ class DiscoverController
         $this->htmlParser = $dom;
     }
 
-    public function showArticleAction(MyApp $app)
+    public function showPageAction(MyApp $app)
+    {
+        return $app->render('discover.html.twig');
+    }
+
+    public function getArticleAction(MyApp $app)
     {
         $article = new StanfordArticle($this->htmlParser);
         $article->downloadArticle();
-        return $app->render('discover.html.twig', array(
-            'article' => $article
-        ));
+        return $app->json($article);
     }
 
 }
