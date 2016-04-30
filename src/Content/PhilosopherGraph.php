@@ -24,15 +24,11 @@ class PhilosopherGraph
            'query' => ["limit" => 1, "query" => $name, "key" => PhilosopherGraph::API_KEY]
         ]);
         $details = json_decode($response->getBody(), true);
-        if (isset($details['itemListElement'][0]['result'])) {
-            $this->information = $details['itemListElement'][0]['result']['detailedDescription']['articleBody'];
-            $this->imageUrl = $details['itemListElement'][0]['result']['image']['contentUrl'];
-            $this->detailsUrl = $details['itemListElement'][0]['result']['detailedDescription']['url'];
-        } else {
-            $this->information = "Couldn't find information in Knowledge Graph";
-            $this->imageUrl = "Couldn't find information in Knowledge Graph";
-            $this->detailsUrl = "Couldn't find information in Knowledge Graph";
-        }
+
+        $this->information = $details['itemListElement'][0]['result']['detailedDescription']['articleBody'] ?? "Couldn't find information in Knowledge Graph";
+        $this->imageUrl = $details['itemListElement'][0]['result']['image']['contentUrl'] ?? "";
+        $this->detailsUrl = $details['itemListElement'][0]['result']['detailedDescription']['url'] ?? "";
+
 
     }
 
