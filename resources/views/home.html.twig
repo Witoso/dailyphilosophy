@@ -1,7 +1,7 @@
 {% extends "_base.html.twig" %}
 {% block body %}
     <blockquote>
-        <p>The Greek word for philosopher (<em>philosophos</em>) connotes a distinction from <em>sophos</em>. It
+        <p class="quote">The Greek word for philosopher (<em>philosophos</em>) connotes a distinction from <em>sophos</em>. It
             signifies
             the lover of wisdom (knowledge) as distinguished from him who considers himself wise in the possession of
             knowledge. This meaning of the word still endures: the essence of philosophy is not the possession of the
@@ -11,7 +11,10 @@
         </p>
         <footer>Karl Jaspers</footer>
     </blockquote>
-    <a href="{{ url('discover') }}">Discover</a>
-    <a href="{{ url('meet') }}">Meet</a>
-    <a href="#">Read</a>
+    <div class="routes">
+        <a class="btn btn-default" href="{{ url('discover') }}">Discover</a>
+        <a class="btn btn-default" href="{{ url('meet') }}">Meet</a>
+        <a class="btn btn-default" href="#">Read</a>
+    </div>
+
 {% endblock %}

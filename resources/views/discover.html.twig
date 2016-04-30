@@ -1,6 +1,7 @@
 {% extends "_base.html.twig" %}
 {% block body %}
+    <h2>Discover</h2>
     <h3>{{ article.title }}</h3>
     <p>{{ article.intro }}</p>
-    <a href="{{ article.url }}">Read More</a>
+    <button class="btn btn-default" href="{{ article.url }}">Read More</button>
 {% endblock %}
