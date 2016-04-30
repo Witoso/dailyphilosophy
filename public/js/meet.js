@@ -1,6 +1,5 @@
 $(() => {
     $('.details').click((event) => {
-        console.log('hello');
         let name = $(event.target).text()
         $.ajax({
             url: '/meet/' + name,
