@@ -7,7 +7,7 @@ use DailyPhilosophy\Interfaces\Article;
 
 class StanfordArticle implements Article
 {
-    const randomArticle = 'http://plato.stanford.edu/cgi-bin/encyclopedia/random';
+    const RANDOM_ARTICLE = 'http://plato.stanford.edu/cgi-bin/encyclopedia/random';
     private $domParser;
     private $intro;
     private $url;
@@ -21,7 +21,7 @@ class StanfordArticle implements Article
 
     public function downloadArticle()
     {
-        $this->domParser->loadFromUrl(StanfordArticle::randomArticle);
+        $this->domParser->loadFromUrl(StanfordArticle::RANDOM_ARTICLE);
         $this->intro = $this->cleanHtml($this->domParser->find('#preamble')->innerHtml);
         $this->title = $this->domParser->find('#aueditable h1')->text;
         $this->url = $this->parseUrl($this->domParser->find('#article-nav > ul > li', 4)->firstChild()->getAttribute('href'));
