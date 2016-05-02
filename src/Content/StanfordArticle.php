@@ -12,6 +12,7 @@ class StanfordArticle implements Article, \JsonSerializable
     private $intro;
     private $url;
     private $title;
+    private $tableOfContents;
 
 
 
@@ -25,7 +26,8 @@ class StanfordArticle implements Article, \JsonSerializable
         return [
             "intro" => $this->intro,
             "url" => $this->url,
-            "title" => $this->title
+            "title" => $this->title,
+            "toc" => $this->tableOfContents
         ];
     }
 
@@ -35,6 +37,7 @@ class StanfordArticle implements Article, \JsonSerializable
         $this->intro = $this->cleanHtml($this->domParser->find('#preamble')->innerHtml);
         $this->title = $this->domParser->find('#aueditable h1')->text;
         $this->url = $this->parseUrl($this->domParser->find('#article-nav > ul > li', 4)->firstChild()->getAttribute('href'));
+        $this->tableOfContents = $this->domParser->find('#toc')->innerHtml;
     }
 
     private function cleanHtml(string $html): string
