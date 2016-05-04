@@ -35,7 +35,7 @@ class StanfordArticle implements Article, \JsonSerializable
     {
         $this->domParser->loadFromUrl(StanfordArticle::RANDOM_ARTICLE);
         $this->intro = $this->cleanHtml($this->domParser->find('#preamble')->innerHtml);
-        $this->title = $this->domParser->find('#aueditable h1')->text;
+        $this->title = $this->domParser->find('#aueditable h1')->innerHtml;
         $this->url = $this->parseUrl($this->domParser->find('#article-nav > ul > li', 4)->firstChild()->getAttribute('href'));
         $this->tableOfContents = $this->domParser->find('#toc')->innerHtml;
     }
