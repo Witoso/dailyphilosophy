@@ -1,6 +1,7 @@
 First project with Silex and php7
 
 The projects has three pages:
+
 *Discover* - it fetches a random article from Stanford Encyclopedia of Philosophy, shows its intro, and table of contents.
 
 ![discover](https://github.com/Witoso/dailyphilosophy/blob/master/readme_assets/discover.gif?raw=true)
