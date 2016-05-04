@@ -19,7 +19,7 @@ class Book
     public static function fetchAll(Connection $conn)
     {
         $books = [];
-        $sql = "SELECT * FROM books JOIN philosophers ON books.author_id = philosophers.id";
+        $sql = "SELECT books.id, books.title, philosophers.name, books.path FROM books JOIN philosophers ON books.author_id = philosophers.id";
         $stm = $conn->query($sql);
         while ($row = $stm->fetch()) {
             $book = new Book();
