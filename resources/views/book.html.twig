@@ -1,0 +1,19 @@
+{% extends "_base.html.twig" %}
+
+
+{% block links %}
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    {#javascript#}
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/read.js"></script>
+
+{% endblock %}
+
+{% block body %}
+    <p id="confirmation">Bookmark saved</p>
+    {{ book.content|raw }}
+
+{% endblock %}

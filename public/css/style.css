@@ -51,7 +51,7 @@ a.btn {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 60px;
+    height: 40px;
     background-color: #f5f5f5;
     margin-top: 20px;
 }
@@ -59,5 +59,26 @@ a.btn {
 .text-muted {
     margin: 20px 0;
     color: #777;
-    font-size: 1em;
+    font-size: 0.8em;
 }
+
+#toc {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+#toc ul {
+    list-style-type: none;
+}
+
+#confirmation {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 5em;
+    margin-top: -100px;
+    margin-left: -250px;
+}
+
+
