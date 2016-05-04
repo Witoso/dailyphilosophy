@@ -1,0 +1,17 @@
+{% extends "_base.html.twig" %}
+
+{% block body %}
+<h2>Read</h2>
+
+
+
+    <ul>
+        {% for book in books %}
+        <li><a href="{{ url('getBook', {'id': book.id}) }}">{{ book.title }}</a> by {{ book.author }}</li>
+        {% endfor %}
+    </ul>
+
+    <p><em>More books coming soon</em></p>
+{% endblock %}
+
+
